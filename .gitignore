@@ -140,3 +140,6 @@ Icon
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
+
+input.txt
+input_stat.txt
