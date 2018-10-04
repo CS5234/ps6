@@ -4,7 +4,7 @@ from statistics import median
 from hash import uniform_hash
 
 size_a = 10
-size_b = 1000
+size_b = 5000
 
 input_file = "input.txt"
 input_stat_file = "input_stat.txt"
@@ -35,14 +35,17 @@ def run():
         actual = stat[key]
         estimated_lst = []
         for i in range(size_a):
-            estimated = uniform_hash(int(key), size_b, i)
+            estimated = ab_counter[i][uniform_hash(int(key), size_b, i)]
             estimated_lst.append(estimated)
-        print("value: " + key + " estimated: " + str(min(estimated_lst)) + " actual:" + str(actual))
-        print(estimated_lst)
-        error += abs(min(estimated_lst) - actual)
 
-    print("error is " + str(error))
+        print("value: " + key + " estimated: " + str(median(estimated_lst)) + " actual:" + str(actual))
+        print(estimated_lst)
+        error += abs(median(estimated_lst) - actual)
+
+    print("error is " + str(error / 1000))
 
 run()
+
+
 
 
