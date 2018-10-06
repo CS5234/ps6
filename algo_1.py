@@ -3,16 +3,12 @@ from statistics import median
 
 from hash import uniform_hash
 
-size_a = 10
-size_b = 6000
 
-input_file = "input.txt"
-input_stat_file = "input_stat.txt"
+def algo_one_run(size_a, size_b):
+    input_file = "input.txt"
+    input_stat_file = "input_stat.txt"
 
-ab_counter = [[0 for i in range(size_b)] for j in range(size_a)]
-
-
-def run():
+    ab_counter = [[0 for i in range(size_b)] for j in range(size_a)]
     input_stream = open(input_file, "r")
 
     while True:
@@ -42,10 +38,5 @@ def run():
         print(estimated_lst)
         error += abs(median(estimated_lst) - actual)
 
-    print("error is " + str(error / 1000))
-
-run()
-
-
-
+    return error
 

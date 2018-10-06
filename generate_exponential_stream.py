@@ -15,13 +15,12 @@ def generate_data(size, data_range):
     for i in range(size):
         rdm = random.randint(0, cons)
         next_rand = helper(rdm, data_range)
-
-        output_file.write(str(next_rand) + "\n")
-
-        if stat.get(next_rand, ''):
-            stat[next_rand] += 1
-        else:
-            stat[next_rand] = 1
+        if next_rand:
+            output_file.write(str(next_rand) + "\n")
+            if stat.get(next_rand, ''):
+                stat[next_rand] += 1
+            else:
+                stat[next_rand] = 1
 
     output_file.close()
 
@@ -47,4 +46,4 @@ def helper(s, data_range):
             break
 
 
-generate_data(1000000, 20)
+generate_data(30000000, 24)
