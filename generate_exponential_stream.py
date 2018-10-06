@@ -10,8 +10,12 @@ def generate_data(size, data_range):
 
     output_file = open(output_file_name, "w")
 
+    cons = pow(2, data_range)
+
     for i in range(size):
-        next_rand = random.randint(0, data_range)
+        rdm = random.randint(0, cons)
+        next_rand = helper(rdm, data_range)
+
         output_file.write(str(next_rand) + "\n")
 
         if stat.get(next_rand, ''):
@@ -28,4 +32,19 @@ def generate_data(size, data_range):
     output_stat.close()
 
 
-generate_data(3000000, 2000)
+def helper(s, data_range):
+    const = pow(2, data_range)
+    j = 0
+    while 1:
+        if s - const / 2 <= 0:
+            return j
+        elif j <= data_range:
+            s = s - const / 2
+            const = const / 2
+            j = j + 1
+            continue
+        else:
+            break
+
+
+generate_data(1000000, 20)

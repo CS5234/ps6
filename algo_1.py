@@ -4,7 +4,7 @@ from statistics import median
 from hash import uniform_hash
 
 size_a = 10
-size_b = 5000
+size_b = 6000
 
 input_file = "input.txt"
 input_stat_file = "input_stat.txt"
