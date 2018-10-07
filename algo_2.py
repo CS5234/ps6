@@ -42,8 +42,14 @@ def algo_two_run(size_a, size_b):
 
             estimated_lst.append(estimated)
 
-        # print("value: " + key + " estimated: " + str(median(estimated_lst)) + " actual:" + str(actual))
-        # print(estimated_lst)
-        error += abs(median(estimated_lst) - actual)
+        print("value: " + key + " estimated: " + str(median(estimated_lst)) + " actual:" + str(actual))
+        # print(estimated_lst)int#__rsub__
+        error += abs(median(estimated_lst) - actual) / actual
 
     return error
+
+print(algo_two_run(10, 30))
+
+
+
+

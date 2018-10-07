@@ -5,7 +5,7 @@ output_file_name = "input.txt"
 output_stat_file = "input_stat.txt"
 
 
-def generate_data(size, data_range):
+def generate_exponential_data(size, data_range):
     stat = dict()
 
     output_file = open(output_file_name, "w")
@@ -46,4 +46,4 @@ def helper(s, data_range):
             break
 
 
-generate_data(30000000, 24)
+generate_exponential_data(6000000, 24)

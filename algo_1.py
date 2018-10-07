@@ -25,7 +25,7 @@ def algo_one_run(size_a, size_b):
     input_stat = open(input_stat_file, "r")
     stat = json.loads(input_stat.readline())
 
-    error = 0
+    error = 0.0
 
     for key in stat.keys():
         actual = stat[key]
@@ -35,8 +35,11 @@ def algo_one_run(size_a, size_b):
             estimated_lst.append(estimated)
 
         print("value: " + key + " estimated: " + str(median(estimated_lst)) + " actual:" + str(actual))
-        print(estimated_lst)
-        error += abs(median(estimated_lst) - actual)
+        # print(estimated_lst)
+        error += abs(median(estimated_lst) - actual) / actual
 
     return error
+
+
+print(algo_one_run(10, 30))
 
