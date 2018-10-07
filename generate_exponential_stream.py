@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import io
 import json
 import math
@@ -37,3 +38,4 @@ def generate_data(n, m):
 
 
 generate_data(10000000, 30)
+
