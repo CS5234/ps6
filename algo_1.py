@@ -1,3 +1,4 @@
+import io
 import json
 from statistics import median
 
@@ -13,18 +14,19 @@ ab_counter = [[0 for i in range(size_b)] for j in range(size_a)]
 
 
 def run():
-    input_stream = open(input_file, "r")
+
+    input_stream = io.open(input_file, 'r')
 
     while True:
-        next_input = input_stream.readline()
 
-        if next_input == "":
+        next_line = input_stream.readline().strip().split(' ')
+
+        if len(next_line) == 0:
             break
 
-        next_input = float(next_input)
-
-        for i in range(size_a):
-            ab_counter[i][uniform_hash(next_input, size_b, i)] += 1
+        for word in next_line:
+            for i in range(size_a):
+                ab_counter[i][uniform_hash(word, size_b, i)] += 1
 
     input_stat = open(input_stat_file, "r")
     stat = json.loads(input_stat.readline())
